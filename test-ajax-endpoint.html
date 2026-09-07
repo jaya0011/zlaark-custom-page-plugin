@@ -1,0 +1,219 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <title>Test AJAX Endpoint</title>
+    <style>
+        body {
+            font-family: Arial, sans-serif;
+            max-width: 1200px;
+            margin: 50px auto;
+            padding: 20px;
+        }
+        .test-section {
+            background: #f5f5f5;
+            padding: 20px;
+            margin: 20px 0;
+            border-radius: 5px;
+        }
+        button {
+            background: #0073aa;
+            color: white;
+            border: none;
+            padding: 10px 20px;
+            cursor: pointer;
+            border-radius: 3px;
+            font-size: 14px;
+        }
+        button:hover {
+            background: #005177;
+        }
+        .result {
+            background: white;
+            padding: 15px;
+            margin-top: 15px;
+            border: 1px solid #ddd;
+            border-radius: 3px;
+            max-height: 400px;
+            overflow-y: auto;
+        }
+        .success { color: green; font-weight: bold; }
+        .error { color: red; font-weight: bold; }
+        pre {
+            background: #f9f9f9;
+            padding: 10px;
+            border: 1px solid #ddd;
+            overflow-x: auto;
+        }
+    </style>
+</head>
+<body>
+    <h1>🧪 Test AJAX Endpoint for Product Template</h1>
+    
+    <div class="test-section">
+        <h2>Instructions:</h2>
+        <ol>
+            <li>Make sure you're logged into WordPress as an administrator</li>
+            <li>Open this file in your browser from the WordPress admin area</li>
+            <li>Click the "Test AJAX Endpoint" button below</li>
+            <li>Check the results</li>
+        </ol>
+    </div>
+
+    <div class="test-section">
+        <h2>Test 1: Check if jQuery and WordPress AJAX are available</h2>
+        <button onclick="testEnvironment()">Run Test 1</button>
+        <div id="test1-result" class="result" style="display:none;"></div>
+    </div>
+
+    <div class="test-section">
+        <h2>Test 2: Test AJAX Endpoint</h2>
+        <button onclick="testAjaxEndpoint()">Run Test 2</button>
+        <div id="test2-result" class="result" style="display:none;"></div>
+    </div>
+
+    <div class="test-section">
+        <h2>Test 3: Check Response HTML</h2>
+        <button onclick="testResponseHTML()">Run Test 3</button>
+        <div id="test3-result" class="result" style="display:none;"></div>
+    </div>
+
+    <script>
+        function testEnvironment() {
+            const result = document.getElementById('test1-result');
+            result.style.display = 'block';
+            result.innerHTML = '<p>Testing environment...</p>';
+            
+            let html = '';
+            
+            // Check jQuery
+            if (typeof jQuery !== 'undefined') {
+                html += '<p class="success">✅ jQuery is loaded (version: ' + jQuery.fn.jquery + ')</p>';
+            } else {
+                html += '<p class="error">❌ jQuery is NOT loaded</p>';
+            }
+            
+            // Check ajaxurl
+            if (typeof ajaxurl !== 'undefined') {
+                html += '<p class="success">✅ ajaxurl is defined: ' + ajaxurl + '</p>';
+            } else {
+                html += '<p class="error">❌ ajaxurl is NOT defined</p>';
+            }
+            
+            // Check cpb_admin
+            if (typeof cpb_admin !== 'undefined') {
+                html += '<p class="success">✅ cpb_admin is defined</p>';
+                html += '<pre>' + JSON.stringify(cpb_admin, null, 2) + '</pre>';
+            } else {
+                html += '<p class="error">❌ cpb_admin is NOT defined</p>';
+            }
+            
+            result.innerHTML = html;
+        }
+
+        function testAjaxEndpoint() {
+            const result = document.getElementById('test2-result');
+            result.style.display = 'block';
+            result.innerHTML = '<p>Testing AJAX endpoint...</p>';
+            
+            if (typeof jQuery === 'undefined' || typeof cpb_admin === 'undefined') {
+                result.innerHTML = '<p class="error">❌ Cannot test: jQuery or cpb_admin not available. Run Test 1 first.</p>';
+                return;
+            }
+            
+            jQuery.post(cpb_admin.ajax_url, {
+                action: 'cpb_admin_action',
+                cpb_action: 'get_product_template',
+                nonce: cpb_admin.nonce,
+                index: 0
+            })
+            .done(function(response) {
+                let html = '<h3>AJAX Request Successful!</h3>';
+                
+                if (response.success) {
+                    html += '<p class="success">✅ Response success: true</p>';
+                    html += '<p>HTML length: ' + response.data.html.length + ' characters</p>';
+                    html += '<h4>Response Data:</h4>';
+                    html += '<pre>' + JSON.stringify(response, null, 2).substring(0, 500) + '...</pre>';
+                } else {
+                    html += '<p class="error">❌ Response success: false</p>';
+                    html += '<p>Error message: ' + (response.data.message || 'Unknown error') + '</p>';
+                    html += '<pre>' + JSON.stringify(response, null, 2) + '</pre>';
+                }
+                
+                result.innerHTML = html;
+            })
+            .fail(function(xhr, status, error) {
+                let html = '<h3 class="error">AJAX Request Failed!</h3>';
+                html += '<p>Status: ' + status + '</p>';
+                html += '<p>Error: ' + error + '</p>';
+                html += '<h4>Response:</h4>';
+                html += '<pre>' + xhr.responseText + '</pre>';
+                result.innerHTML = html;
+            });
+        }
+
+        function testResponseHTML() {
+            const result = document.getElementById('test3-result');
+            result.style.display = 'block';
+            result.innerHTML = '<p>Testing response HTML...</p>';
+            
+            if (typeof jQuery === 'undefined' || typeof cpb_admin === 'undefined') {
+                result.innerHTML = '<p class="error">❌ Cannot test: jQuery or cpb_admin not available. Run Test 1 first.</p>';
+                return;
+            }
+            
+            jQuery.post(cpb_admin.ajax_url, {
+                action: 'cpb_admin_action',
+                cpb_action: 'get_product_template',
+                nonce: cpb_admin.nonce,
+                index: 0
+            })
+            .done(function(response) {
+                if (response.success) {
+                    let html = '<h3>Analyzing Response HTML...</h3>';
+                    
+                    const responseHTML = response.data.html;
+                    
+                    // Check for category selector
+                    if (responseHTML.includes('wc-category-selector')) {
+                        html += '<p class="success">✅ Category selector found in HTML</p>';
+                    } else {
+                        html += '<p class="error">❌ Category selector NOT found in HTML</p>';
+                    }
+                    
+                    // Check for tag selector
+                    if (responseHTML.includes('wc-tag-selector') || responseHTML.includes('WooCommerce Product Tags')) {
+                        html += '<p class="success">✅ Tag selector found in HTML</p>';
+                    } else {
+                        html += '<p class="error">❌ Tag selector NOT found in HTML</p>';
+                    }
+                    
+                    // Check for product fields
+                    if (responseHTML.includes('config[products][0]')) {
+                        html += '<p class="success">✅ Product field names are correct</p>';
+                    } else {
+                        html += '<p class="error">❌ Product field names are incorrect</p>';
+                    }
+                    
+                    // Show preview
+                    html += '<h4>HTML Preview (first 1000 characters):</h4>';
+                    html += '<pre>' + responseHTML.substring(0, 1000) + '...</pre>';
+                    
+                    // Show rendered HTML
+                    html += '<h4>Rendered HTML:</h4>';
+                    html += '<div style="border: 2px solid #0073aa; padding: 10px; background: white;">';
+                    html += responseHTML;
+                    html += '</div>';
+                    
+                    result.innerHTML = html;
+                } else {
+                    result.innerHTML = '<p class="error">❌ Response was not successful</p>';
+                }
+            })
+            .fail(function(xhr, status, error) {
+                result.innerHTML = '<p class="error">❌ AJAX request failed: ' + error + '</p>';
+            });
+        }
+    </script>
+</body>
+</html>

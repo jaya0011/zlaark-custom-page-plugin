@@ -1,0 +1,38 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<phpunit
+    bootstrap="bootstrap.php"
+    colors="true"
+    convertErrorsToExceptions="true"
+    convertNoticesToExceptions="true"
+    convertWarningsToExceptions="true"
+    processIsolation="false"
+    stopOnFailure="false"
+    verbose="true"
+>
+    <testsuites>
+        <testsuite name="Unit Tests">
+            <directory>./Unit</directory>
+        </testsuite>
+        <testsuite name="Integration Tests">
+            <directory>./Integration</directory>
+        </testsuite>
+        <testsuite name="End-to-End Tests">
+            <directory>./EndToEnd</directory>
+        </testsuite>
+    </testsuites>
+    
+    <filter>
+        <whitelist>
+            <directory suffix=".php">../models</directory>
+            <directory suffix=".php">../includes</directory>
+            <directory suffix=".php">../admin</directory>
+            <directory suffix=".php">../api</directory>
+            <directory suffix=".php">../integrations</directory>
+        </whitelist>
+    </filter>
+    
+    <logging>
+        <log type="coverage-html" target="coverage"/>
+        <log type="coverage-text" target="php://stdout" showUncoveredFiles="false"/>
+    </logging>
+</phpunit>

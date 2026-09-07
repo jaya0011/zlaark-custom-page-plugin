@@ -1,0 +1,59 @@
+================================================================================
+✅ IMPORT ERROR FIXED!
+================================================================================
+
+ERROR WAS:
+"Failed to insert page: Unknown column 'language' in 'INSERT INTO'"
+
+CAUSE:
+The database table doesn't have a 'language' column, but the import function
+was trying to insert data into it.
+
+================================================================================
+✅ WHAT I FIXED:
+================================================================================
+
+1. Added check to see if 'language' column exists in the database
+2. Only insert language data if the column exists
+3. If column doesn't exist, import works without it
+4. Same fix applied to export function
+
+Now the import/export will work regardless of whether your database has the
+language column or not.
+
+================================================================================
+🚀 TEST IT NOW:
+================================================================================
+
+1. Go to: Page Builder > All Pages
+2. Press: Ctrl + Shift + R (hard refresh)
+3. Click "Import Page" button
+4. Select your JSON file (hh22-export.json)
+5. Click "Import"
+
+IT SHOULD WORK NOW! ✅
+
+The page should import successfully without the language column error.
+
+================================================================================
+WHAT HAPPENS NOW:
+================================================================================
+
+✓ If your database HAS 'language' column: Language data is imported
+✓ If your database DOESN'T HAVE 'language' column: Import works without it
+✓ Export will work either way
+✓ No more database errors
+
+================================================================================
+VERIFY THE FIX:
+================================================================================
+
+After importing, you should see:
+✓ "Page imported successfully"
+✓ The page appears in your pages list
+✓ No error messages
+
+Instead of:
+✗ "Failed to insert page: Unknown column 'language'"
+
+================================================================================

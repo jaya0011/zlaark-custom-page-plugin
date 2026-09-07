@@ -1,0 +1,155 @@
+================================================================================
+IMPORT/EXPORT - QUICK TEST CHECKLIST
+================================================================================
+
+Follow these steps to quickly verify the import/export feature is working:
+
+================================================================================
+STEP 1: OPEN THE PAGE
+================================================================================
+
+☐ Log into WordPress admin
+☐ Go to: Page Builder > All Pages
+☐ Press F12 to open Developer Console
+
+================================================================================
+STEP 2: CHECK CONSOLE
+================================================================================
+
+Look for these messages in the console:
+
+☐ "CPB Import/Export: Script loaded"
+☐ "CPB Import/Export: cpbAdmin available? true"
+
+If you see both messages → Feature is loaded correctly! ✓
+
+If you DON'T see these messages:
+- Hard refresh: Ctrl+Shift+R (Windows) or Cmd+Shift+R (Mac)
+- Clear browser cache
+- Check for JavaScript errors in console
+
+================================================================================
+STEP 3: TEST EXPORT (30 seconds)
+================================================================================
+
+☐ Find any page in the list
+☐ Click the "Export" link (next to Edit)
+☐ Check console for: "CPB Import/Export: Export button clicked"
+☐ A JSON file should download automatically
+
+SUCCESS? ☐ YES  ☐ NO
+
+If NO:
+- Check console for error messages
+- Verify page has data
+- Check Network tab for AJAX response
+
+================================================================================
+STEP 4: TEST IMPORT BUTTON (15 seconds)
+================================================================================
+
+☐ Click the "Import Page" button (top of page, next to "Add New")
+☐ Check console for: "CPB Import/Export: Import button clicked"
+☐ A modal window should appear
+
+SUCCESS? ☐ YES  ☐ NO
+
+If NO:
+- Check if modal HTML exists: jQuery('#cpb-import-modal').length
+- Look for CSS conflicts
+- Check console for errors
+
+================================================================================
+STEP 5: TEST FULL IMPORT (1 minute)
+================================================================================
+
+☐ In the import modal, click "Choose File"
+☐ Select the JSON file you exported in Step 3
+☐ Click "Import" button
+☐ Wait for "Importing... Please wait." message
+☐ Success message should appear
+☐ Page list refreshes automatically
+☐ Imported page appears in the list
+
+SUCCESS? ☐ YES  ☐ NO
+
+If NO:
+- Check console for error messages
+- Verify JSON file is valid
+- Check WordPress debug.log
+
+================================================================================
+FINAL VERIFICATION
+================================================================================
+
+All tests passed?
+
+☐ Console shows script loaded
+☐ Export downloads JSON file
+☐ Import button shows modal
+☐ Import successfully adds page
+☐ No errors in console
+
+If ALL boxes are checked → Feature is working perfectly! ✓✓✓
+
+================================================================================
+TROUBLESHOOTING QUICK FIXES
+================================================================================
+
+PROBLEM: Nothing works
+FIX: Hard refresh browser (Ctrl+Shift+R), clear all caches
+
+PROBLEM: Console shows "cpbAdmin is not defined"
+FIX: Refresh page, check if wp_localize_script is working
+
+PROBLEM: Modal doesn't appear
+FIX: Check jQuery('#cpb-import-modal').length in console (should be 1)
+
+PROBLEM: Export doesn't download
+FIX: Check Network tab, verify AJAX response has data
+
+PROBLEM: Import fails
+FIX: Check WordPress debug.log, verify JSON file format
+
+================================================================================
+NEED MORE HELP?
+================================================================================
+
+See these files for detailed information:
+
+- SETUP_INSTRUCTIONS.txt     → Step-by-step setup guide
+- IMPORT_EXPORT_TESTING.md   → Comprehensive troubleshooting
+- IMPORT_EXPORT_GUIDE.md     → Complete feature documentation
+
+================================================================================
+QUICK CONSOLE COMMANDS
+================================================================================
+
+Check if jQuery is loaded:
+> typeof jQuery
+Should return: "function"
+
+Check if cpbAdmin exists:
+> console.log(cpbAdmin)
+Should show: {ajaxUrl: "...", nonce: "..."}
+
+Check if modal exists:
+> jQuery('#cpb-import-modal').length
+Should return: 1
+
+Check if export buttons exist:
+> jQuery('.cpb-export-page').length
+Should return: number of pages
+
+Manually show modal:
+> jQuery('#cpb-import-modal').css('display', 'flex')
+
+================================================================================
+ESTIMATED TIME
+================================================================================
+
+Complete checklist: 2-3 minutes
+If everything works on first try: 2 minutes
+If troubleshooting needed: 5-10 minutes
+
+================================================================================

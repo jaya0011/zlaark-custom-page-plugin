@@ -1,0 +1,15 @@
+# Composer dependencies (regenerate with `composer install`)
+/vendor/
+
+# Runtime logs
+/logs/*
+!/logs/.htaccess
+
+# OS / editor cruft
+.DS_Store
+Thumbs.db
+*.swp
+branch_structure.json
+temp_auto_push.bat
+temp_interactive_push.bat
+.gitignore

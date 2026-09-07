@@ -1,0 +1,209 @@
+================================================================================
+IMPORT/EXPORT FEATURE - SETUP & VERIFICATION
+================================================================================
+
+The import/export functionality has been successfully added to your Custom Page
+Builder plugin. Follow these steps to verify everything is working correctly.
+
+================================================================================
+STEP 1: VERIFY FILES ARE IN PLACE
+================================================================================
+
+Check that these files exist in your plugin directory:
+
+✓ admin/class-import-export.php
+✓ admin/assets/js/import-export.js
+✓ admin/assets/css/import-export.css
+
+All files should be present and have recent modification dates.
+
+================================================================================
+STEP 2: CLEAR CACHE
+================================================================================
+
+1. Clear WordPress cache (if using a caching plugin)
+2. Clear browser cache or do a hard refresh:
+   - Windows/Linux: Ctrl + Shift + R
+   - Mac: Cmd + Shift + R
+
+================================================================================
+STEP 3: VERIFY THE FEATURE IS LOADED
+================================================================================
+
+1. Log into WordPress admin
+2. Go to: Page Builder > All Pages
+3. Open browser Developer Console (Press F12)
+4. Look for these console messages:
+   
+   ✓ "CPB Import/Export: Script loaded"
+   ✓ "CPB Import/Export: cpbAdmin available? true"
+
+If you see these messages, the feature is loaded correctly!
+
+================================================================================
+STEP 4: TEST EXPORT FUNCTIONALITY
+================================================================================
+
+1. On the "All Pages" screen, find any existing page
+2. Look for the "Export" link next to the page (after "Edit")
+3. Click "Export"
+4. Check the console for: "CPB Import/Export: Export button clicked"
+5. A JSON file should automatically download to your computer
+6. The filename will be: [page-slug]-export.json
+
+SUCCESS: If the file downloads, export is working! ✓
+
+================================================================================
+STEP 5: TEST IMPORT FUNCTIONALITY
+================================================================================
+
+1. On the "All Pages" screen, look for the "Import Page" button
+   (It's next to the "Add New" button at the top)
+2. Click "Import Page"
+3. Check the console for: "CPB Import/Export: Import button clicked"
+4. A modal window should appear with a file upload form
+
+SUCCESS: If the modal appears, import UI is working! ✓
+
+5. Click "Choose File" and select the JSON file you exported in Step 4
+6. Click "Import" button
+7. You should see "Importing... Please wait."
+8. After a moment, you'll see a success message
+9. The page list will automatically refresh
+10. You should see the imported page in the list (with a unique slug if needed)
+
+SUCCESS: If the page appears in the list, import is working! ✓
+
+================================================================================
+TROUBLESHOOTING
+================================================================================
+
+PROBLEM: Console messages don't appear
+SOLUTION: 
+- Refresh the page with Ctrl+Shift+R
+- Check if JavaScript files are loading (Network tab in DevTools)
+- Verify file paths are correct
+
+PROBLEM: Import button doesn't show modal
+SOLUTION:
+- Check console for JavaScript errors
+- Verify jQuery is loaded: type "jQuery" in console
+- Check if modal HTML exists: jQuery('#cpb-import-modal').length should return 1
+
+PROBLEM: Export button doesn't download file
+SOLUTION:
+- Check console for errors
+- Verify page ID is being passed: check data-page-id attribute
+- Check Network tab for AJAX response
+
+PROBLEM: "cpbAdmin is not defined" error
+SOLUTION:
+- Clear all caches
+- Hard refresh browser
+- Check if wp_localize_script is working
+
+PROBLEM: Import fails with error
+SOLUTION:
+- Check WordPress debug.log for PHP errors
+- Verify JSON file format is correct
+- Ensure file is valid JSON (open in text editor)
+
+================================================================================
+WHAT TO EXPECT
+================================================================================
+
+EXPORT:
+-------
+✓ Click "Export" next to any page
+✓ JSON file downloads immediately
+✓ File contains all page data and sections
+✓ Filename format: page-slug-export.json
+
+IMPORT:
+-------
+✓ Click "Import Page" button
+✓ Modal appears with file upload form
+✓ Select JSON file from your computer
+✓ Optional: Check "Update existing pages"
+✓ Click "Import" button
+✓ Success message appears
+✓ Page list refreshes automatically
+✓ Imported page appears in the list
+
+================================================================================
+CONSOLE DEBUGGING
+================================================================================
+
+If you need to debug, open the browser console and you'll see detailed logs:
+
+When clicking Import button:
+- "CPB Import/Export: Import button clicked"
+- "CPB Import/Export: Modal element found? true"
+
+When clicking Export button:
+- "CPB Import/Export: Export button clicked"
+- "CPB Import/Export: Page ID: X Slug: page-slug"
+- "CPB Import/Export: Sending AJAX request"
+- "CPB Import/Export: Export response received"
+- "CPB Import/Export: Export successful, creating download"
+- "CPB Import/Export: Download triggered"
+
+When submitting import form:
+- "CPB Import/Export: Submitting import form"
+- "CPB Import/Export: Import response received"
+- "CPB Import/Export: Import successful, reloading page in 2 seconds"
+
+================================================================================
+NEXT STEPS
+================================================================================
+
+Once you've verified everything works:
+
+1. Test with different page types and sections
+2. Test bulk import (multiple pages in one JSON file)
+3. Test the "Update existing pages" option
+4. Create backups of important pages
+5. Share page templates with your team
+
+================================================================================
+DOCUMENTATION
+================================================================================
+
+For more information, see:
+
+- IMPORT_EXPORT_GUIDE.md         - Complete feature documentation
+- IMPORT_EXPORT_QUICK_START.txt  - Quick reference guide
+- IMPORT_EXPORT_TESTING.md       - Detailed testing procedures
+- IMPORT_EXPORT_README.txt       - Technical overview
+
+================================================================================
+SUPPORT
+================================================================================
+
+If you encounter any issues:
+
+1. Check the console for error messages
+2. Review the troubleshooting section above
+3. Check IMPORT_EXPORT_TESTING.md for detailed debugging
+4. Collect error messages and screenshots
+5. Contact support with the collected information
+
+================================================================================
+SUCCESS CHECKLIST
+================================================================================
+
+Before considering the setup complete, verify:
+
+☐ Console shows "Script loaded" message
+☐ Import button appears on All Pages screen
+☐ Clicking Import shows modal
+☐ Export link appears next to each page
+☐ Clicking Export downloads JSON file
+☐ Importing a file shows success message
+☐ Imported pages appear in the list
+☐ No JavaScript errors in console
+☐ No PHP errors in WordPress logs
+
+If all items are checked, the feature is working correctly! ✓
+
+================================================================================

@@ -1,0 +1,135 @@
+/**
+ * Category Manager Styles
+ * Custom Page Builder
+ */
+
+.cpb-category-selector {
+    margin-bottom: 15px;
+}
+
+.cpb-category-selector-header {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    margin-bottom: 10px;
+}
+
+.cpb-category-selector-header label {
+    font-weight: 600;
+    margin: 0;
+}
+
+.cpb-add-category-btn {
+    font-size: 12px;
+    padding: 4px 10px;
+    height: auto;
+    line-height: 1.4;
+}
+
+.cpb-category-list {
+    max-height: 200px;
+    overflow-y: auto;
+    border: 1px solid #ddd;
+    border-radius: 4px;
+    padding: 10px;
+    background: #fff;
+}
+
+.cpb-category-item {
+    margin-bottom: 8px;
+}
+
+.cpb-category-item:last-child {
+    margin-bottom: 0;
+}
+
+.cpb-category-item label {
+    display: flex;
+    align-items: center;
+    cursor: pointer;
+    font-weight: normal;
+    margin: 0;
+}
+
+.cpb-category-checkbox {
+    margin-right: 8px;
+    margin-top: 0;
+}
+
+.cpb-selected-categories-display {
+    margin-top: 8px;
+    padding: 8px;
+    background: #f0f0f1;
+    border-radius: 4px;
+    font-size: 13px;
+    color: #2c3338;
+}
+
+.cpb-selected-categories-display em {
+    color: #8c8f94;
+}
+
+.cpb-category-toggle {
+    display: inline-block;
+    margin-top: 5px;
+    color: #2271b1;
+    text-decoration: none;
+    font-size: 13px;
+    cursor: pointer;
+}
+
+.cpb-category-toggle:hover {
+    color: #135e96;
+    text-decoration: underline;
+}
+
+.cpb-category-dropdown {
+    display: none;
+    margin-top: 10px;
+}
+
+.cpb-category-dropdown.active {
+    display: block;
+}
+
+/* Scrollbar styling for category list */
+.cpb-category-list::-webkit-scrollbar {
+    width: 8px;
+}
+
+.cpb-category-list::-webkit-scrollbar-track {
+    background: #f1f1f1;
+    border-radius: 4px;
+}
+
+.cpb-category-list::-webkit-scrollbar-thumb {
+    background: #888;
+    border-radius: 4px;
+}
+
+.cpb-category-list::-webkit-scrollbar-thumb:hover {
+    background: #555;
+}
+
+/* Empty state */
+.cpb-category-list:empty::before {
+    content: "No categories available. Click 'Add New Category' to create one.";
+    display: block;
+    color: #8c8f94;
+    font-style: italic;
+    text-align: center;
+    padding: 20px;
+}
+
+/* Responsive */
+@media (max-width: 768px) {
+    .cpb-category-selector-header {
+        flex-direction: column;
+        align-items: flex-start;
+        gap: 10px;
+    }
+    
+    .cpb-add-category-btn {
+        width: 100%;
+    }
+}

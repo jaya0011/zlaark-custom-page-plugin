@@ -1,0 +1,257 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <title>Import/Export Debug Test</title>
+    <style>
+        body {
+            font-family: Arial, sans-serif;
+            max-width: 800px;
+            margin: 50px auto;
+            padding: 20px;
+            background: #f5f5f5;
+        }
+        .test-section {
+            background: white;
+            padding: 20px;
+            margin: 20px 0;
+            border-radius: 5px;
+            box-shadow: 0 2px 5px rgba(0,0,0,0.1);
+        }
+        .test-section h2 {
+            margin-top: 0;
+            color: #333;
+        }
+        .status {
+            padding: 10px;
+            margin: 10px 0;
+            border-radius: 3px;
+        }
+        .status.pass {
+            background: #d4edda;
+            color: #155724;
+            border: 1px solid #c3e6cb;
+        }
+        .status.fail {
+            background: #f8d7da;
+            color: #721c24;
+            border: 1px solid #f5c6cb;
+        }
+        .status.info {
+            background: #d1ecf1;
+            color: #0c5460;
+            border: 1px solid #bee5eb;
+        }
+        button {
+            background: #0073aa;
+            color: white;
+            border: none;
+            padding: 10px 20px;
+            border-radius: 3px;
+            cursor: pointer;
+            margin: 5px;
+        }
+        button:hover {
+            background: #005177;
+        }
+        code {
+            background: #f4f4f4;
+            padding: 2px 6px;
+            border-radius: 3px;
+            font-family: 'Courier New', monospace;
+        }
+        pre {
+            background: #f4f4f4;
+            padding: 15px;
+            border-radius: 3px;
+            overflow-x: auto;
+        }
+    </style>
+</head>
+<body>
+    <h1>🔍 Import/Export Debug Test</h1>
+    <p>This page helps you debug the import/export functionality. Open your browser's Developer Console (F12) to see detailed logs.</p>
+
+    <div class="test-section">
+        <h2>Step 1: Check WordPress Admin</h2>
+        <p>This test must be run from the WordPress admin area. Copy and paste these commands into your browser console while on the <strong>Page Builder > All Pages</strong> screen:</p>
+        
+        <h3>Test 1: Check if jQuery is loaded</h3>
+        <pre>typeof jQuery</pre>
+        <p>Expected result: <code>"function"</code></p>
+        
+        <h3>Test 2: Check if cpbAdmin is defined</h3>
+        <pre>console.log(cpbAdmin)</pre>
+        <p>Expected result: Object with <code>ajaxUrl</code> and <code>nonce</code> properties</p>
+        
+        <h3>Test 3: Check if import button exists</h3>
+        <pre>jQuery('#cpb-import-page-btn').length</pre>
+        <p>Expected result: <code>1</code></p>
+        
+        <h3>Test 4: Check if export buttons exist</h3>
+        <pre>jQuery('.cpb-export-page').length</pre>
+        <p>Expected result: Number of pages in your list (e.g., <code>3</code> if you have 3 pages)</p>
+        
+        <h3>Test 5: Check if modal exists</h3>
+        <pre>jQuery('#cpb-import-modal').length</pre>
+        <p>Expected result: <code>1</code></p>
+        
+        <h3>Test 6: Check if import-export script is loaded</h3>
+        <pre>jQuery('script[src*="import-export.js"]').length</pre>
+        <p>Expected result: <code>1</code></p>
+        
+        <h3>Test 7: Manually trigger import modal</h3>
+        <pre>jQuery('#cpb-import-modal').css('display', 'flex')</pre>
+        <p>Expected result: Modal should appear on screen</p>
+        
+        <h3>Test 8: Check console for import/export messages</h3>
+        <p>Look for these messages in the console:</p>
+        <ul>
+            <li><code>CPB Import/Export: DOM ready, starting initialization</code></li>
+            <li><code>CPB Import/Export: Initializing...</code></li>
+            <li><code>CPB Import/Export: Script fully loaded and ready</code></li>
+        </ul>
+    </div>
+
+    <div class="test-section">
+        <h2>Step 2: Common Issues & Solutions</h2>
+        
+        <h3>Issue: "jQuery is not defined"</h3>
+        <div class="status fail">
+            <strong>Problem:</strong> jQuery is not loaded<br>
+            <strong>Solution:</strong> Make sure you're on a WordPress admin page. jQuery should be loaded automatically.
+        </div>
+        
+        <h3>Issue: "cpbAdmin is not defined"</h3>
+        <div class="status fail">
+            <strong>Problem:</strong> The localized script data is not available<br>
+            <strong>Solution:</strong> 
+            <ul>
+                <li>Hard refresh the page (Ctrl+Shift+R or Cmd+Shift+R)</li>
+                <li>Clear browser cache</li>
+                <li>Check if you're on the correct page (Page Builder > All Pages)</li>
+            </ul>
+        </div>
+        
+        <h3>Issue: Import button doesn't exist (length = 0)</h3>
+        <div class="status fail">
+            <strong>Problem:</strong> The HTML element is not in the page<br>
+            <strong>Solution:</strong> 
+            <ul>
+                <li>Verify you're on the "All Pages" screen, not "Add New"</li>
+                <li>Check if the plugin is activated</li>
+                <li>Look at the page source to see if the button HTML is there</li>
+            </ul>
+        </div>
+        
+        <h3>Issue: Script is not loaded (length = 0)</h3>
+        <div class="status fail">
+            <strong>Problem:</strong> The JavaScript file is not being enqueued<br>
+            <strong>Solution:</strong> 
+            <ul>
+                <li>Check file exists: <code>wp-content/plugins/[plugin-name]/admin/assets/js/import-export.js</code></li>
+                <li>Check file permissions (should be readable)</li>
+                <li>Look in Network tab for 404 errors</li>
+            </ul>
+        </div>
+    </div>
+
+    <div class="test-section">
+        <h2>Step 3: Manual Testing</h2>
+        
+        <h3>Test Export Manually</h3>
+        <p>Run this in the console to test export without clicking:</p>
+        <pre>jQuery.ajax({
+    url: cpbAdmin.ajaxUrl,
+    type: 'POST',
+    data: {
+        action: 'cpb_export_page',
+        nonce: cpbAdmin.nonce,
+        page_id: 1  // Change to an actual page ID
+    },
+    success: function(response) {
+        console.log('Export response:', response);
+    },
+    error: function(xhr, status, error) {
+        console.error('Export error:', error);
+    }
+});</pre>
+        
+        <h3>Test Import Modal Manually</h3>
+        <p>Run this in the console to show the modal:</p>
+        <pre>jQuery('#cpb-import-modal').css('display', 'flex').addClass('active');</pre>
+        
+        <h3>Check Event Handlers</h3>
+        <p>Run this to see if click handlers are attached:</p>
+        <pre>jQuery._data(jQuery('#cpb-import-page-btn')[0], 'events')</pre>
+        <p>Expected result: Should show <code>click</code> event</p>
+    </div>
+
+    <div class="test-section">
+        <h2>Step 4: Check Network Tab</h2>
+        <ol>
+            <li>Open Developer Tools (F12)</li>
+            <li>Go to the Network tab</li>
+            <li>Reload the Page Builder > All Pages screen</li>
+            <li>Look for these files:
+                <ul>
+                    <li><code>import-export.js</code> - Should load with status 200</li>
+                    <li><code>import-export.css</code> - Should load with status 200</li>
+                </ul>
+            </li>
+            <li>If you see 404 errors, the files are not in the correct location</li>
+        </ol>
+    </div>
+
+    <div class="test-section">
+        <h2>Step 5: Enable WordPress Debug Mode</h2>
+        <p>Add these lines to your <code>wp-config.php</code> file:</p>
+        <pre>define('WP_DEBUG', true);
+define('WP_DEBUG_LOG', true);
+define('WP_DEBUG_DISPLAY', false);</pre>
+        <p>Then check <code>wp-content/debug.log</code> for any PHP errors.</p>
+    </div>
+
+    <div class="test-section">
+        <h2>Quick Fix Checklist</h2>
+        <div class="status info">
+            <strong>Try these in order:</strong>
+            <ol>
+                <li>Hard refresh the page (Ctrl+Shift+R)</li>
+                <li>Clear browser cache completely</li>
+                <li>Clear WordPress cache (if using a caching plugin)</li>
+                <li>Deactivate and reactivate the plugin</li>
+                <li>Check browser console for errors</li>
+                <li>Check Network tab for failed file loads</li>
+                <li>Verify file permissions</li>
+                <li>Test in a different browser</li>
+                <li>Disable other plugins temporarily</li>
+                <li>Switch to a default WordPress theme temporarily</li>
+            </ol>
+        </div>
+    </div>
+
+    <div class="test-section">
+        <h2>Need More Help?</h2>
+        <p>If none of the above works, collect this information:</p>
+        <ul>
+            <li>WordPress version</li>
+            <li>PHP version</li>
+            <li>Browser and version</li>
+            <li>Console error messages (screenshot)</li>
+            <li>Network tab showing failed requests (screenshot)</li>
+            <li>Contents of wp-content/debug.log</li>
+        </ul>
+        <p>Then check the documentation files:
+            <ul>
+                <li>IMPORT_EXPORT_TESTING.md</li>
+                <li>SETUP_INSTRUCTIONS.txt</li>
+                <li>QUICK_TEST_CHECKLIST.txt</li>
+            </ul>
+        </p>
+    </div>
+
+    <script>
+        console.log('Debug page loaded. Copy the test commands above into your WordPress admin console.');
+    </script>
+</body>
+</html>

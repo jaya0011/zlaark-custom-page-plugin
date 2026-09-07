@@ -1,0 +1,182 @@
+================================================================================
+IMPORT/EXPORT NOT WORKING - DO THIS NOW!
+================================================================================
+
+I've added a TEST PAGE to help you debug the issue.
+
+================================================================================
+STEP 1: GO TO THE TEST PAGE
+================================================================================
+
+1. Log into WordPress admin
+2. Go to: Page Builder > 🔍 Test I/E
+3. You should see a test page with 6 tests
+
+================================================================================
+STEP 2: RUN ALL TESTS
+================================================================================
+
+Click each "Run Test" button in order:
+
+TEST 1: Check Dependencies
+- Click "Run Test"
+- Should show: ✓ jQuery is loaded
+- Should show: ✓ cpbAdmin is defined
+
+If FAILS:
+- jQuery not loaded = You're not on WordPress admin page
+- cpbAdmin not defined = Scripts not loading correctly
+
+TEST 2: Check Elements  
+- Click "Run Test"
+- Should show: ✓ Import button exists
+- Should show: ✓ Export buttons exist
+- Should show: ✓ import-export.js is loaded
+
+If FAILS:
+- Import button NOT found = You need to be on "All Pages" screen
+- import-export.js NOT loaded = File missing or not enqueued
+
+TEST 3: Test Modal
+- Click "Show Test Modal"
+- A modal should appear on screen
+
+If FAILS:
+- Nothing happens = CSS not loaded or modal HTML broken
+
+TEST 4: Test AJAX
+- Enter a page ID (try 1, 2, 3, etc.)
+- Click "Test Export"
+- Should show: ✓ Export AJAX works!
+
+If FAILS:
+- AJAX error = Server-side issue, check WordPress debug.log
+
+TEST 5: Check Console
+- Click "Log Test Messages"
+- Open browser console (F12)
+- Look for test messages
+
+TEST 6: Manual Import Button
+- Click both buttons
+- Should show: ✓ Click event works!
+
+If FAILS:
+- Nothing happens = jQuery event handlers not working
+
+================================================================================
+STEP 3: BASED ON TEST RESULTS
+================================================================================
+
+IF ALL TESTS PASS:
+→ The functionality WORKS on the test page
+→ Issue is specific to the "All Pages" screen
+→ Go to "All Pages" and hard refresh (Ctrl+Shift+R)
+
+IF TEST 1 FAILS (cpbAdmin not defined):
+→ Scripts not loading in correct order
+→ Clear ALL caches (WordPress + browser)
+→ Hard refresh (Ctrl+Shift+R)
+→ Deactivate and reactivate plugin
+
+IF TEST 2 FAILS (import-export.js not loaded):
+→ File is missing or path is wrong
+→ Check: wp-content/plugins/[plugin-name]/admin/assets/js/import-export.js
+→ Verify file exists and has content
+→ Check file permissions (should be 644)
+
+IF TEST 3 FAILS (Modal doesn't show):
+→ CSS not loaded or modal HTML broken
+→ Check: wp-content/plugins/[plugin-name]/admin/assets/css/import-export.css
+→ Verify file exists
+
+IF TEST 4 FAILS (AJAX error):
+→ Server-side PHP issue
+→ Enable WordPress debug mode
+→ Check wp-content/debug.log
+→ Verify class-import-export.php is loaded
+
+IF TEST 6 FAILS (Click events don't work):
+→ jQuery not working properly
+→ Try different browser
+→ Check for JavaScript errors in console
+
+================================================================================
+STEP 4: GO TO ALL PAGES SCREEN
+================================================================================
+
+After tests pass on test page:
+
+1. Go to: Page Builder > All Pages
+2. Press F12 (open console)
+3. Hard refresh: Ctrl+Shift+R (Windows) or Cmd+Shift+R (Mac)
+4. Look for console messages:
+   - "CPB Import/Export: DOM ready, starting initialization"
+   - "CPB Import/Export: Script fully loaded and ready"
+   - "CPB Import/Export: Import button exists? true"
+
+5. Try clicking "Import Page" button
+6. Try clicking "Export" link
+
+================================================================================
+WHAT THE TEST PAGE TELLS YOU
+================================================================================
+
+The test page will show you EXACTLY what's wrong:
+
+✓ All tests pass = Everything works, just need to refresh "All Pages"
+✗ Test 1 fails = Dependencies not loaded (cache issue)
+✗ Test 2 fails = Files missing or not enqueued
+✗ Test 3 fails = CSS/HTML issue
+✗ Test 4 fails = Server-side PHP issue
+✗ Test 6 fails = jQuery/event handler issue
+
+================================================================================
+MOST COMMON FIX
+================================================================================
+
+90% of the time, this fixes it:
+
+1. Go to Page Builder > All Pages
+2. Press Ctrl + Shift + R (hard refresh)
+3. Wait for page to fully reload
+4. Try Import/Export again
+
+If that doesn't work, the test page will tell you why.
+
+================================================================================
+STILL NOT WORKING?
+================================================================================
+
+If the test page shows all tests passing but "All Pages" still doesn't work:
+
+1. Compare the test page URL to "All Pages" URL
+2. Check if they're loading the same scripts
+3. View page source on both pages
+4. Search for "import-export.js" in the source
+5. If it's in test page but not "All Pages", there's an enqueue condition issue
+
+Then run this in console on "All Pages":
+
+jQuery('script[src*="import-export.js"]').length
+
+If it returns 0, the script isn't being loaded on that page.
+
+================================================================================
+NEED THE EXACT ERROR?
+================================================================================
+
+On the "All Pages" screen:
+
+1. Open console (F12)
+2. Type: jQuery('#cpb-import-page-btn').length
+3. If it returns 0, the button HTML isn't there
+4. If it returns 1, the button exists
+
+Then type: jQuery._data(jQuery('#cpb-import-page-btn')[0], 'events')
+- If it shows click events, handlers are attached
+- If it's undefined, handlers aren't attached
+
+This tells you EXACTLY where the problem is.
+
+================================================================================

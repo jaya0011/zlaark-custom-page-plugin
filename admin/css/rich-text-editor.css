@@ -1,0 +1,159 @@
+/**
+ * Rich Text Editor Styles
+ * Custom Page Builder
+ */
+
+.cpb-rich-text-wrapper {
+    position: relative;
+    margin-bottom: 10px;
+}
+
+.cpb-rich-text-toolbar {
+    display: flex;
+    align-items: center;
+    gap: 4px;
+    padding: 8px;
+    background: #f5f5f5;
+    border: 1px solid #ddd;
+    border-bottom: none;
+    border-radius: 4px 4px 0 0;
+    flex-wrap: wrap;
+}
+
+.cpb-rich-text-wrapper textarea {
+    border-radius: 0 0 4px 4px !important;
+    border-top: none !important;
+    font-family: 'Courier New', monospace;
+    resize: vertical;
+}
+
+.cpb-format-btn {
+    display: inline-flex;
+    align-items: center;
+    justify-content: center;
+    min-width: 32px;
+    height: 32px;
+    padding: 4px 8px;
+    background: #fff;
+    border: 1px solid #ccc;
+    border-radius: 3px;
+    cursor: pointer;
+    font-size: 14px;
+    transition: all 0.2s ease;
+}
+
+.cpb-format-btn:hover {
+    background: #e8e8e8;
+    border-color: #999;
+}
+
+.cpb-format-btn:active {
+    background: #d5d5d5;
+    transform: translateY(1px);
+}
+
+.cpb-format-btn strong {
+    font-weight: bold;
+    font-size: 14px;
+}
+
+.cpb-format-btn em {
+    font-style: italic;
+    font-size: 14px;
+}
+
+.cpb-format-btn u {
+    text-decoration: underline;
+    font-size: 14px;
+}
+
+.cpb-toolbar-separator {
+    width: 1px;
+    height: 24px;
+    background: #ccc;
+    margin: 0 4px;
+}
+
+.cpb-color-picker {
+    width: 40px;
+    height: 32px;
+    padding: 2px;
+    border: 1px solid #ccc;
+    border-radius: 3px;
+    cursor: pointer;
+    background: #fff;
+}
+
+.cpb-color-picker:hover {
+    border-color: #999;
+}
+
+/* Tooltip on hover */
+.cpb-format-btn[title]:hover::after,
+.cpb-color-picker[title]:hover::after {
+    content: attr(title);
+    position: absolute;
+    bottom: 100%;
+    left: 50%;
+    transform: translateX(-50%);
+    padding: 4px 8px;
+    background: #333;
+    color: #fff;
+    font-size: 11px;
+    white-space: nowrap;
+    border-radius: 3px;
+    margin-bottom: 5px;
+    z-index: 1000;
+    pointer-events: none;
+}
+
+/* Responsive adjustments */
+@media (max-width: 768px) {
+    .cpb-rich-text-toolbar {
+        gap: 2px;
+        padding: 6px;
+    }
+    
+    .cpb-format-btn {
+        min-width: 28px;
+        height: 28px;
+        padding: 2px 6px;
+        font-size: 12px;
+    }
+    
+    .cpb-color-picker {
+        width: 36px;
+        height: 28px;
+    }
+}
+
+/* Preview mode for formatted text */
+.cpb-rich-text-preview {
+    padding: 10px;
+    border: 1px solid #ddd;
+    border-radius: 4px;
+    background: #fff;
+    margin-top: 10px;
+    min-height: 50px;
+}
+
+.cpb-rich-text-preview strong {
+    font-weight: bold;
+}
+
+.cpb-rich-text-preview em {
+    font-style: italic;
+}
+
+.cpb-rich-text-preview u {
+    text-decoration: underline;
+}
+
+.cpb-rich-text-preview a {
+    color: #0073aa;
+    text-decoration: underline;
+}
+
+.cpb-rich-text-preview a:hover {
+    color: #005177;
+}

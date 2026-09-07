@@ -1,0 +1,85 @@
+================================================================================
+IMPORT/EXPORT NOT WORKING? START HERE!
+================================================================================
+
+I've created a DIAGNOSTIC TEST PAGE to find the exact problem.
+
+================================================================================
+🚀 DO THIS RIGHT NOW (2 minutes):
+================================================================================
+
+1. Go to WordPress Admin
+2. Navigate to: Page Builder > 🔍 Test I/E
+3. Click all the "Run Test" buttons
+4. Read the results
+
+The test page will tell you EXACTLY what's wrong.
+
+================================================================================
+📋 WHAT EACH TEST DOES:
+================================================================================
+
+Test 1: Checks if jQuery and cpbAdmin are loaded
+Test 2: Checks if HTML elements and scripts exist
+Test 3: Tests if modal can be displayed
+Test 4: Tests if AJAX communication works
+Test 5: Logs debug info to console
+Test 6: Tests if click events work
+
+================================================================================
+✅ IF ALL TESTS PASS:
+================================================================================
+
+The functionality WORKS! The issue is just on the "All Pages" screen.
+
+FIX:
+1. Go to: Page Builder > All Pages
+2. Press: Ctrl + Shift + R (hard refresh)
+3. Try Import/Export again
+
+================================================================================
+❌ IF TESTS FAIL:
+================================================================================
+
+The test results will show you the specific problem:
+
+"jQuery is NOT loaded"
+→ Refresh the page, make sure you're in WordPress admin
+
+"cpbAdmin is NOT defined"
+→ Clear all caches, hard refresh
+→ Deactivate and reactivate the plugin
+
+"Import button NOT found"
+→ Go to "All Pages" screen, not "Add New"
+
+"import-export.js is NOT loaded"
+→ File is missing or not being enqueued
+→ Check file exists: wp-content/plugins/.../admin/assets/js/import-export.js
+
+"Export AJAX" fails
+→ Server-side issue
+→ Check WordPress debug.log for PHP errors
+
+"Click event" doesn't work
+→ jQuery issue
+→ Try different browser
+
+================================================================================
+📖 DETAILED INSTRUCTIONS:
+================================================================================
+
+See FIX_NOW.txt for step-by-step troubleshooting based on test results.
+
+================================================================================
+🎯 QUICK SUMMARY:
+================================================================================
+
+1. Go to: Page Builder > 🔍 Test I/E
+2. Run all tests
+3. If all pass: Hard refresh "All Pages" screen
+4. If any fail: Follow the fix for that specific test
+
+The test page will diagnose the problem in 2 minutes.
+
+================================================================================

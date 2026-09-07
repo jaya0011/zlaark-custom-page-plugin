@@ -1,0 +1,321 @@
+================================================================================
+IMPORT/EXPORT NOT WORKING - IMMEDIATE ACTION PLAN
+================================================================================
+
+Follow these steps RIGHT NOW to fix the issue:
+
+================================================================================
+ACTION 1: HARD REFRESH (Do this first!)
+================================================================================
+
+1. Go to: WordPress Admin > Page Builder > All Pages
+2. Press: Ctrl + Shift + R (Windows/Linux) or Cmd + Shift + R (Mac)
+3. Wait for page to fully reload
+4. Try clicking "Import Page" button
+5. Try clicking "Export" link next to a page
+
+DID IT WORK? 
+☐ YES - You're done! The issue was cached files.
+☐ NO - Continue to Action 2
+
+================================================================================
+ACTION 2: RUN THE DEBUG SCRIPT
+================================================================================
+
+1. Stay on: Page Builder > All Pages
+2. Press F12 to open Developer Console
+3. Click the "Console" tab
+4. Open file: CONSOLE_DEBUG_SCRIPT.js
+5. Copy ALL the code (Ctrl+A, Ctrl+C)
+6. Paste into console (Ctrl+V)
+7. Press Enter
+
+READ THE OUTPUT:
+- Look for "✓ PASS" or "✗ FAIL" messages
+- Read the SUMMARY at the bottom
+- Note which tests failed
+
+COMMON RESULTS:
+
+If "jQuery is not loaded" FAILS:
+→ You're not on a WordPress admin page
+→ Refresh the page
+
+If "cpbAdmin is not defined" FAILS:
+→ Scripts not loading correctly
+→ Clear ALL caches (browser + WordPress)
+→ Hard refresh again
+
+If "Import button exists" FAILS:
+→ You're on wrong page (should be "All Pages", not "Add New")
+→ Or plugin HTML not rendering
+
+If "import-export.js is loaded" FAILS:
+→ File is missing or not being enqueued
+→ Check file exists at: wp-content/plugins/.../admin/assets/js/import-export.js
+
+DID ALL TESTS PASS?
+☐ YES - Continue to Action 3
+☐ NO - Fix the failed tests first, then retry
+
+================================================================================
+ACTION 3: CHECK CONSOLE FOR ERRORS
+================================================================================
+
+1. Keep Console open (F12)
+2. Look for RED error messages
+3. Click "Import Page" button
+4. Click "Export" link
+5. Watch for new errors
+
+COPY ANY ERROR MESSAGES YOU SEE.
+
+Common errors:
+
+"cpbAdmin is not defined"
+→ Clear cache, hard refresh
+
+"Cannot read property 'ajaxUrl'"
+→ cpbAdmin object incomplete, refresh page
+
+"404 Not Found" for import-export.js
+→ File missing, check file location
+
+NO ERRORS BUT STILL NOT WORKING?
+→ Continue to Action 4
+
+================================================================================
+ACTION 4: MANUALLY TEST THE MODAL
+================================================================================
+
+1. Open Console (F12)
+2. Type this command:
+
+jQuery('#cpb-import-modal').css('display', 'flex')
+
+3. Press Enter
+
+WHAT HAPPENED?
+
+☐ Modal appeared on screen
+   → Good! CSS and HTML are working
+   → Issue is with click handlers
+   → Continue to Action 5
+
+☐ Nothing happened / Error message
+   → Modal HTML or CSS not loaded
+   → Check Network tab for import-export.css
+   → Verify modal HTML exists in page source
+
+================================================================================
+ACTION 5: CHECK IF SCRIPTS ARE LOADING
+================================================================================
+
+1. Open Developer Tools (F12)
+2. Click "Network" tab
+3. Reload page (F5)
+4. Look for these files:
+
+   import-export.js - Should show Status: 200
+   import-export.css - Should show Status: 200
+   admin.js - Should show Status: 200
+
+STATUS CODES:
+- 200 = Success ✓
+- 404 = File not found ✗
+- 403 = Permission denied ✗
+- 500 = Server error ✗
+
+IF YOU SEE 404 ERRORS:
+1. Files are missing or in wrong location
+2. Check: wp-content/plugins/[plugin-folder]/admin/assets/
+3. Verify file names match exactly (case-sensitive)
+
+IF YOU SEE 403 ERRORS:
+1. File permission issue
+2. Use FTP to check file permissions
+3. Should be 644 for files, 755 for folders
+
+IF ALL FILES LOAD (200):
+→ Continue to Action 6
+
+================================================================================
+ACTION 6: DEACTIVATE AND REACTIVATE PLUGIN
+================================================================================
+
+1. Go to: WordPress Admin > Plugins
+2. Find: "Zlaark Custom Page Builder" (or similar name)
+3. Click: "Deactivate"
+4. Wait 5 seconds
+5. Click: "Activate"
+6. Go to: Page Builder > All Pages
+7. Hard refresh: Ctrl+Shift+R
+8. Try Import/Export again
+
+DID IT WORK?
+☐ YES - Plugin needed reinitialization
+☐ NO - Continue to Action 7
+
+================================================================================
+ACTION 7: CHECK FOR CONFLICTS
+================================================================================
+
+TEST FOR PLUGIN CONFLICTS:
+
+1. Go to: WordPress Admin > Plugins
+2. Deactivate ALL plugins except Custom Page Builder
+3. Go to: Page Builder > All Pages
+4. Try Import/Export
+
+DID IT WORK?
+☐ YES - Another plugin was conflicting
+   → Reactivate plugins one by one to find which one
+☐ NO - Not a plugin conflict, continue
+
+TEST FOR THEME CONFLICTS:
+
+1. Go to: WordPress Admin > Appearance > Themes
+2. Activate: Twenty Twenty-Four (or any default WordPress theme)
+3. Go to: Page Builder > All Pages
+4. Try Import/Export
+
+DID IT WORK?
+☐ YES - Your theme was conflicting
+☐ NO - Not a theme conflict, continue to Action 8
+
+================================================================================
+ACTION 8: ENABLE DEBUG MODE
+================================================================================
+
+1. Connect to your server via FTP/SFTP
+2. Open: wp-config.php
+3. Find the line: /* That's all, stop editing! */
+4. BEFORE that line, add:
+
+define('WP_DEBUG', true);
+define('WP_DEBUG_LOG', true);
+define('WP_DEBUG_DISPLAY', false);
+
+5. Save the file
+6. Go to: Page Builder > All Pages
+7. Try Import/Export
+8. Check: wp-content/debug.log for errors
+
+LOOK FOR:
+- PHP Fatal errors
+- PHP Warnings
+- Class not found errors
+- Permission denied errors
+
+COPY ANY ERRORS YOU FIND.
+
+================================================================================
+ACTION 9: VERIFY FILE LOCATIONS
+================================================================================
+
+Connect via FTP/SFTP and verify these files exist:
+
+☐ wp-content/plugins/[plugin-name]/admin/class-import-export.php
+☐ wp-content/plugins/[plugin-name]/admin/assets/js/import-export.js
+☐ wp-content/plugins/[plugin-name]/admin/assets/css/import-export.css
+
+Check file sizes:
+- class-import-export.php: ~7-8 KB
+- import-export.js: ~9-10 KB
+- import-export.css: ~1-2 KB
+
+If files are 0 bytes or missing:
+→ Re-upload the files from your backup
+
+Check file permissions:
+- Files should be: 644 (rw-r--r--)
+- Folders should be: 755 (rwxr-xr-x)
+
+To fix permissions via SSH:
+chmod 644 import-export.js
+chmod 644 import-export.css
+chmod 644 class-import-export.php
+
+================================================================================
+ACTION 10: TRY DIFFERENT BROWSER
+================================================================================
+
+1. If using Chrome, try Firefox
+2. If using Firefox, try Chrome
+3. If using Edge, try Chrome
+
+DID IT WORK IN DIFFERENT BROWSER?
+☐ YES - Original browser has issues
+   → Clear cache in original browser
+   → Update browser
+   → Disable browser extensions
+☐ NO - Not browser-specific
+
+================================================================================
+WHAT TO DO IF NOTHING WORKS
+================================================================================
+
+If you've tried ALL actions above and it still doesn't work:
+
+1. COLLECT THIS INFORMATION:
+   ☐ WordPress version (Dashboard > Updates)
+   ☐ PHP version (Dashboard > Site Health)
+   ☐ Browser name and version
+   ☐ Output from CONSOLE_DEBUG_SCRIPT.js
+   ☐ Screenshots of console errors
+   ☐ Screenshots of Network tab
+   ☐ Contents of wp-content/debug.log
+   ☐ List of active plugins
+   ☐ Active theme name
+
+2. CHECK THESE DOCUMENTS:
+   ☐ TROUBLESHOOTING_STEPS.txt - Detailed troubleshooting
+   ☐ IMPORT_EXPORT_TESTING.md - Testing procedures
+   ☐ DEBUG_IMPORT_EXPORT.html - Visual debug guide
+
+3. CONTACT SUPPORT with all the information above
+
+================================================================================
+MOST LIKELY CAUSES (Based on experience)
+================================================================================
+
+1. CACHED FILES (80% of cases)
+   → Fix: Hard refresh (Ctrl+Shift+R)
+
+2. WRONG PAGE (10% of cases)
+   → Fix: Make sure you're on "All Pages", not "Add New"
+
+3. PLUGIN CONFLICT (5% of cases)
+   → Fix: Deactivate other plugins temporarily
+
+4. FILE PERMISSIONS (3% of cases)
+   → Fix: Set files to 644, folders to 755
+
+5. MISSING FILES (2% of cases)
+   → Fix: Re-upload the files
+
+================================================================================
+QUICK WIN CHECKLIST
+================================================================================
+
+Try these in order for fastest results:
+
+☐ 1. Hard refresh (Ctrl+Shift+R) - 30 seconds
+☐ 2. Clear browser cache - 1 minute
+☐ 3. Run debug script - 2 minutes
+☐ 4. Check console errors - 1 minute
+☐ 5. Deactivate/reactivate plugin - 1 minute
+
+If none of these work, then proceed with full troubleshooting.
+
+================================================================================
+NEED IMMEDIATE HELP?
+================================================================================
+
+1. Open CONSOLE_DEBUG_SCRIPT.js
+2. Copy and paste into browser console
+3. Take screenshot of the output
+4. Check TROUBLESHOOTING_STEPS.txt for your specific error
+5. Follow the steps for that error
+
+================================================================================

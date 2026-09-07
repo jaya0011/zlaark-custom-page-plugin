@@ -1,0 +1,32 @@
+{
+    "name": "custom-page-builder/plugin",
+    "description": "WordPress Custom Page Builder Plugin",
+    "type": "wordpress-plugin",
+    "require": {
+        "php": ">=8.0"
+    },
+    "require-dev": {
+        "phpunit/phpunit": "^9.5",
+        "wp-phpunit/wp-phpunit": "^6.0"
+    },
+    "autoload": {
+        "psr-4": {
+            "Custom_Page_Builder\\": "includes/",
+            "Custom_Page_Builder\\Models\\": "models/",
+            "Custom_Page_Builder\\Admin\\": "admin/",
+            "Custom_Page_Builder\\API\\": "api/",
+            "Custom_Page_Builder\\Integrations\\": "integrations/"
+        }
+    },
+    "autoload-dev": {
+        "psr-4": {
+            "Custom_Page_Builder\\Tests\\": "tests/"
+        }
+    },
+    "scripts": {
+        "test": "phpunit",
+        "test-unit": "phpunit --testsuite=\"Unit Tests\"",
+        "test-integration": "phpunit --testsuite=\"Integration Tests\"",
+        "test-e2e": "phpunit --testsuite=\"End-to-End Tests\""
+    }
+}

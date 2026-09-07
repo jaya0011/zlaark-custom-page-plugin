@@ -1,0 +1,151 @@
+/**
+ * Image Management Styles
+ * Custom Page Builder - Edit and Delete Image Buttons
+ */
+
+.image-upload-field {
+    display: block;
+    width: 100%;
+}
+
+.image-preview-container {
+    display: flex;
+    flex-direction: column;
+    gap: 10px;
+    padding: 10px;
+    background: #f9f9f9;
+    border: 1px solid #ddd;
+    border-radius: 4px;
+}
+
+.image-preview {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    background: #fff;
+    border: 1px solid #ddd;
+    border-radius: 4px;
+    padding: 10px;
+    min-height: 100px;
+}
+
+.image-preview img {
+    max-width: 100%;
+    max-height: 200px;
+    height: auto;
+    border-radius: 4px;
+    object-fit: contain;
+}
+
+.image-button-group {
+    display: flex;
+    gap: 8px;
+    justify-content: center;
+    flex-wrap: wrap;
+}
+
+.image-button-group .button {
+    flex: 1;
+    min-width: 120px;
+    text-align: center;
+    padding: 8px 12px;
+    font-size: 14px;
+    cursor: pointer;
+    border-radius: 4px;
+    transition: all 0.2s ease;
+}
+
+.upload-image-btn {
+    background: #2271b1;
+    color: #fff;
+    border: 1px solid #2271b1;
+}
+
+.upload-image-btn:hover {
+    background: #135e96;
+    border-color: #135e96;
+    color: #fff;
+}
+
+.edit-image-btn {
+    background: #f0f0f1;
+    color: #2c3338;
+    border: 1px solid #8c8f94;
+}
+
+.edit-image-btn:hover {
+    background: #e0e0e1;
+    border-color: #6c6f74;
+    color: #1d2327;
+}
+
+.remove-image-btn {
+    background: #d63638;
+    color: #fff;
+    border: 1px solid #d63638;
+}
+
+.remove-image-btn:hover {
+    background: #b32d2e;
+    border-color: #b32d2e;
+    color: #fff;
+}
+
+/* Testimonials - smaller circular images */
+.testimonials-section-config .image-preview img {
+    max-width: 80px;
+    max-height: 80px;
+    border-radius: 50%;
+}
+
+/* Category showcase - medium images */
+.category-showcase-section-config .image-preview img {
+    max-width: 120px;
+    max-height: 120px;
+}
+
+/* Product grid - larger images */
+.product-grid-section-config .image-preview img {
+    max-width: 150px;
+    max-height: 150px;
+}
+
+/* Content block - full width images */
+.content-block-section-config .image-preview img {
+    max-width: 200px;
+    max-height: 150px;
+}
+
+/* Responsive adjustments */
+@media (max-width: 768px) {
+    .image-button-group {
+        flex-direction: column;
+    }
+    
+    .image-button-group .button {
+        width: 100%;
+        min-width: auto;
+    }
+    
+    .image-preview img {
+        max-height: 150px;
+    }
+}
+
+/* Loading state */
+.image-upload-field.loading {
+    opacity: 0.6;
+    pointer-events: none;
+}
+
+.image-upload-field.loading::after {
+    content: "Loading...";
+    position: absolute;
+    top: 50%;
+    left: 50%;
+    transform: translate(-50%, -50%);
+    background: rgba(255, 255, 255, 0.9);
+    padding: 10px 20px;
+    border-radius: 4px;
+    font-weight: bold;
+}

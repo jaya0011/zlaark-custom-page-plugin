@@ -1,0 +1,56 @@
+IMPORT/EXPORT FEATURE - QUICK START
+====================================
+
+WHAT'S NEW:
+-----------
+✓ Export individual pages to JSON files
+✓ Import pages from JSON files
+✓ Bulk import support
+✓ Option to update existing pages or create new ones
+✓ Automatic slug conflict resolution
+
+HOW TO EXPORT A PAGE:
+---------------------
+1. Go to: Page Builder > All Pages
+2. Find your page in the list
+3. Click "Export" next to the page
+4. JSON file downloads automatically
+
+HOW TO IMPORT A PAGE:
+---------------------
+1. Go to: Page Builder > All Pages
+2. Click "Import Page" button at top
+3. Choose your JSON file
+4. (Optional) Check "Update existing pages" to overwrite
+5. Click "Import"
+6. Done! Page list refreshes automatically
+
+FILES CREATED:
+--------------
+✓ admin/class-import-export.php - Core import/export logic
+✓ admin/assets/js/import-export.js - Frontend JavaScript
+✓ admin/assets/css/import-export.css - Styling
+✓ IMPORT_EXPORT_GUIDE.md - Full documentation
+
+WHAT'S INCLUDED IN EXPORTS:
+---------------------------
+✓ Page title, slug, and status
+✓ All sections and content
+✓ WooCommerce categories and tags
+✓ Language settings (if Polylang active)
+✓ Timestamps
+
+NOTES:
+------
+- Images are referenced by ID, not included in file
+- WooCommerce categories/tags must exist in target site
+- Unique slugs are auto-generated if conflicts occur
+- All operations are logged for debugging
+
+TESTING:
+--------
+1. Create a test page with some sections
+2. Export it using the Export link
+3. Delete the page (or test on another site)
+4. Import the JSON file back
+5. Verify all content is restored correctly

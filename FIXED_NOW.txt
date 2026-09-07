@@ -1,0 +1,55 @@
+================================================================================
+✅ PROBLEM FOUND AND FIXED!
+================================================================================
+
+The test page revealed the issue:
+❌ cpbAdmin was NOT defined
+
+This was because wp_localize_script was only being called for 'cpb-admin-script',
+but the import-export script wasn't getting the data.
+
+================================================================================
+✅ WHAT I FIXED:
+================================================================================
+
+1. Removed dependency on cpb-admin-script (which might not exist)
+2. Added wp_localize_script for BOTH scripts
+3. Now cpbAdmin will be available to import-export.js
+
+================================================================================
+🚀 DO THIS NOW:
+================================================================================
+
+1. Go to: Page Builder > 🔍 Test I/E
+2. Press: Ctrl + Shift + R (hard refresh)
+3. Click "Run Test" on Test 1
+4. You should now see: ✓ cpbAdmin is defined
+
+5. Then go to: Page Builder > All Pages
+6. Press: Ctrl + Shift + R (hard refresh)
+7. Try clicking "Import Page" button
+8. Try clicking "Export" link
+
+IT SHOULD WORK NOW!
+
+================================================================================
+WHY IT WASN'T WORKING:
+================================================================================
+
+The JavaScript file was loading correctly, but it couldn't find the cpbAdmin
+variable because wp_localize_script wasn't being called for the import-export
+script. It was only being called for cpb-admin-script.
+
+Now it's being called for BOTH scripts, so cpbAdmin will always be available.
+
+================================================================================
+VERIFY THE FIX:
+================================================================================
+
+Open browser console (F12) and you should see:
+✓ "CPB Import/Export: cpbAdmin available? true"
+
+Instead of:
+✗ "CPB Import/Export: cpbAdmin available? false"
+
+================================================================================
