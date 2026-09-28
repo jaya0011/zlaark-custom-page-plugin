@@ -1,0 +1,168 @@
+{
+  "version": "1.0.0",
+  "export_date": "2026-09-28 11:37:34",
+  "page": {
+    "title": "about",
+    "slug": "about",
+    "status": "published",
+    "sections": [
+      {
+        "type": "products",
+        "title": "Fondazione Dhawada",
+        "content": "",
+        "order": 0,
+        "products": [
+          {
+            "title": "",
+            "description": "",
+            "badge": "",
+            "link": "",
+            "button_text": "Visualizza prodotto",
+            "featured": 0,
+            "image": 94,
+            "wc_categories": [],
+            "wc_tags": []
+          },
+          {
+            "title": "",
+            "description": "",
+            "badge": "",
+            "link": "",
+            "button_text": "Visualizza prodotto",
+            "featured": 0,
+            "image": 97
+          },
+          {
+            "title": "",
+            "description": "",
+            "badge": "",
+            "link": "",
+            "button_text": "Visualizza prodotto",
+            "featured": 0,
+            "image": 98
+          }
+        ]
+      },
+      {
+        "type": "custom",
+        "title": "",
+        "content": "",
+        "order": 1,
+        "elements": [
+          {
+            "type": "image",
+            "content": "",
+            "alt_text": "",
+            "image": 94
+          },
+          {
+            "type": "heading",
+            "content": "Questa è la Fondazione Dhawada",
+            "heading_level": "h3"
+          },
+          {
+            "type": "paragraph",
+            "content": "La Fondazione Dhawada non è nata da un business plan. È nata da una convinzione semplice: se il tuo lavoro va bene, dovrebbe anche fare del bene.\r\n\r\nAbbiamo iniziato nel 1997 in un piccolo villaggio vicino a Jaipur. Per anni ci siamo concentrati sull'artigianato, sulle persone che lo realizzano e sul lavoro onesto. Ma crescendo, abbiamo sentito la responsabilità di restituire qualcosa alle persone e al luogo che ci hanno resi ciò che siamo.\r\n\r\nAttraverso la Fondazione Dhawada lavoriamo per l'istruzione, la sanità e il sostegno a chi non ha facile accesso a questi servizi. Lavoriamo per le figlie che meritano migliori opportunità. Lavoriamo per le comunità rurali che spesso vengono lasciate indietro. Lo facciamo perché crediamo che un'azienda che prende soltanto e non dà mai non sia un'azienda completa.\r\n\r\nOgni gioiello che acquisti da Dhawada porta con sé tutto questo. Non indossi soltanto qualcosa di bello. Fai parte di qualcosa di più grande.\r\n\r\nCon affetto.\r\nIl Fondatore, il Team Dhawada\r\nMahesh Saini"
+          }
+        ]
+      },
+      {
+        "type": "custom",
+        "title": "Perché Dhawada Gems and Jewellers?",
+        "content": "",
+        "order": 2,
+        "elements": [
+          {
+            "type": "paragraph",
+            "content": "Non abbiamo iniziato per farci conoscere. Abbiamo iniziato perché amavamo ciò che le nostre mani sapevano creare."
+          },
+          {
+            "type": "paragraph",
+            "content": "Un pezzo, un'identità\r\nOgni gioiello è preparato con tale cura da avere una propria identità. Il colore, il materiale, la finitura: tutto è pensato prima che arrivi a te."
+          },
+          {
+            "type": "list",
+            "content": "1",
+            "list_type": "ul"
+          },
+          {
+            "type": "paragraph",
+            "content": "Quasi tre decenni\r\nLo facciamo dal 1997. Non perché fosse facile, ma perché lo amavamo davvero. Un impegno così lungo verso una sola cosa è raro, e si vede in ogni pezzo che realizziamo."
+          },
+          {
+            "type": "list",
+            "content": "2",
+            "list_type": "ul"
+          },
+          {
+            "type": "paragraph",
+            "content": "Prima l'artigiano\r\nPrima di ogni altra cosa, pensiamo alla persona che realizza il pezzo. I nostri artigiani hanno impiegato anni per imparare questo mestiere. La loro abilità, il loro occhio, le loro mani rendono Dhawada ciò che è."
+          },
+          {
+            "type": "list",
+            "content": "3",
+            "list_type": "ul"
+          },
+          {
+            "type": "paragraph",
+            "content": "Restituire\r\nLavoriamo per restituire qualcosa alla comunità che ci circonda. Attraverso il nostro Fondo Benefico sosteniamo l'istruzione, la salute e le opportunità per chi ne ha più bisogno."
+          },
+          {
+            "type": "list",
+            "content": "4",
+            "list_type": "ul"
+          }
+        ]
+      },
+      {
+        "type": "products",
+        "title": "La nostra squadra",
+        "content": "",
+        "order": 3,
+        "products": [
+          {
+            "title": "Aria Chen",
+            "description": "Direttore marketing",
+            "badge": "",
+            "link": "",
+            "button_text": "Visualizza prodotto",
+            "featured": 0,
+            "image": 99,
+            "wc_categories": [],
+            "wc_tags": []
+          },
+          {
+            "title": "Jamal Robinson",
+            "description": "Responsabile della progettazione del prodotto",
+            "badge": "",
+            "link": "",
+            "button_text": "Visualizza prodotto",
+            "featured": 0,
+            "image": 100
+          },
+          {
+            "title": "Nina Patel",
+            "description": "Scienziato dei dati",
+            "badge": "",
+            "link": "",
+            "button_text": "Visualizza prodotto",
+            "featured": 0,
+            "image": 101
+          },
+          {
+            "title": "Liam O\\'Connor",
+            "description": "Ingegnere del software",
+            "badge": "",
+            "link": "",
+            "button_text": "Visualizza prodotto",
+            "featured": 0,
+            "image": 102
+          }
+        ]
+      }
+    ],
+    "language": "it",
+    "created_at": "2025-11-30 17:58:28",
+    "updated_at": "2025-11-30 17:58:28"
+  }
+}

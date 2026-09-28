@@ -1,0 +1,164 @@
+{
+  "version": "1.0.0",
+  "export_date": "2026-09-28 11:37:07",
+  "page": {
+    "title": "About",
+    "slug": "about",
+    "status": "published",
+    "sections": [
+      {
+        "type": "products",
+        "title": "Dhawada Foundation",
+        "content": "",
+        "order": 0,
+        "products": [
+          {
+            "title": "",
+            "description": "",
+            "badge": "",
+            "link": "",
+            "button_text": "View Product",
+            "featured": 0,
+            "image": 94
+          },
+          {
+            "title": "",
+            "description": "",
+            "badge": "",
+            "link": "",
+            "button_text": "View Product",
+            "featured": 0,
+            "image": 95
+          },
+          {
+            "title": "",
+            "description": "",
+            "badge": "",
+            "link": "",
+            "button_text": "View Product",
+            "featured": 0,
+            "image": 96
+          }
+        ]
+      },
+      {
+        "type": "custom",
+        "title": "",
+        "content": "",
+        "order": 1,
+        "elements": [
+          {
+            "type": "image",
+            "content": "",
+            "alt_text": "",
+            "image": 94
+          },
+          {
+            "type": "heading",
+            "content": "This is the Dhawada Foundation",
+            "heading_level": "h3"
+          },
+          {
+            "type": "paragraph",
+            "content": "Dhawada Foundation did not come from a business plan. It came from a simple belief that if your work is doing well, it should also do good.\r\n\r\nWe started in 1997 in a small village near Jaipur. For years, our focus was on the craft, on the people making it, and on doing honest work. But as we grew, we felt a responsibility to give something back to the people and the place that made us who we are.\r\n\r\nThrough the Dhawada Foundation, we work towards education, healthcare, and support for those who do not have easy access to these things. We work for daughters who deserve better opportunities. We work for rural communities that are often left behind. We work because we believe a business that only takes and never gives is not a complete business.\r\n\r\nEvery piece of jewellery you buy from Dhawada carries this with it. You are not just wearing something beautiful. You are part of something bigger.\r\n\r\nWith love.\r\nFounder, Dhawada Team\r\nMahesh Saini"
+          }
+        ]
+      },
+      {
+        "type": "custom",
+        "title": "Why Dhawada Gems and Jewellers?",
+        "content": "",
+        "order": 2,
+        "elements": [
+          {
+            "type": "paragraph",
+            "content": "We did not start this to be known. We started this because we loved what our hands could make."
+          },
+          {
+            "type": "paragraph",
+            "content": "One Piece One Identity\r\nEvery jewel is prepared so carefully that it carries its own identity. The colour, the material, the finish, everything is thought through before it reaches you."
+          },
+          {
+            "type": "list",
+            "content": "1",
+            "list_type": "ul"
+          },
+          {
+            "type": "paragraph",
+            "content": "Nearly Three Decades\r\nWe have been doing this since 1997. Not because it was easy, but because we genuinely loved it. That kind of long commitment to one thing is rare, and it shows in every piece we make."
+          },
+          {
+            "type": "list",
+            "content": "2",
+            "list_type": "ul"
+          },
+          {
+            "type": "paragraph",
+            "content": "Artisan First\r\nBefore anything else, we think about the person making the piece. Our artisans have spent years learning this craft. Their skill, their eye, their hands are what make Dhawada what it is."
+          },
+          {
+            "type": "list",
+            "content": "3",
+            "list_type": "ul"
+          },
+          {
+            "type": "paragraph",
+            "content": "Giving Back\r\nWe are working to give back to the community around us. Through our Charitable Trust, we support education, health, and opportunities for those who need it most."
+          },
+          {
+            "type": "list",
+            "content": "4",
+            "list_type": "ul"
+          }
+        ]
+      },
+      {
+        "type": "products",
+        "title": "Our Team",
+        "content": "",
+        "order": 3,
+        "products": [
+          {
+            "title": "Aria Chen",
+            "description": "Chief Marketing Officer",
+            "badge": "",
+            "link": "",
+            "button_text": "View Product",
+            "featured": 0,
+            "image": 99
+          },
+          {
+            "title": "Jamal Robinson",
+            "description": "Lead Product Designer",
+            "badge": "",
+            "link": "",
+            "button_text": "View Product",
+            "featured": 0,
+            "image": 100
+          },
+          {
+            "title": "Nina Patel",
+            "description": "Data Scientist",
+            "badge": "",
+            "link": "",
+            "button_text": "View Product",
+            "featured": 0,
+            "image": 101
+          },
+          {
+            "title": "Liam O\\'Connor",
+            "description": "Software Engineer",
+            "badge": "",
+            "link": "",
+            "button_text": "View Product",
+            "featured": 0,
+            "image": 103
+          }
+        ]
+      }
+    ],
+    "language": "en",
+    "created_at": "2025-11-22 18:46:56",
+    "updated_at": "2025-11-22 18:46:56"
+  }
+}

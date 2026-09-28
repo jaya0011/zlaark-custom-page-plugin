@@ -1,0 +1,178 @@
+{
+  "version": "1.0.0",
+  "export_date": "2026-09-28 11:37:28",
+  "page": {
+    "title": "About",
+    "slug": "about",
+    "status": "published",
+    "sections": [
+      {
+        "type": "products",
+        "title": "ダワダ財団",
+        "content": "",
+        "order": 0,
+        "products": [
+          {
+            "title": "",
+            "description": "",
+            "badge": "",
+            "link": "",
+            "button_text": "製品を見る",
+            "featured": 0,
+            "image": 94,
+            "wc_categories": [],
+            "wc_tags": []
+          },
+          {
+            "title": "",
+            "description": "",
+            "badge": "",
+            "link": "",
+            "button_text": "製品を見る",
+            "featured": 0,
+            "image": 95,
+            "wc_categories": [],
+            "wc_tags": []
+          },
+          {
+            "title": "",
+            "description": "",
+            "badge": "",
+            "link": "",
+            "button_text": "製品を見る",
+            "featured": 0,
+            "image": 96,
+            "wc_categories": [],
+            "wc_tags": []
+          }
+        ]
+      },
+      {
+        "type": "custom",
+        "title": "",
+        "content": "",
+        "order": 1,
+        "elements": [
+          {
+            "type": "image",
+            "content": "",
+            "alt_text": "",
+            "image": 94
+          },
+          {
+            "type": "heading",
+            "content": "ダワダ財団について",
+            "heading_level": "h3"
+          },
+          {
+            "type": "paragraph",
+            "content": "ダワダ財団はビジネスプランから生まれたものではありません。仕事がうまくいっているなら、それは同時に良いことにも役立てるべきだ、というシンプルな信念から生まれました。\r\n\r\n私たちは1997年、ジャイプル近郊の小さな村で始まりました。長い間、私たちが大切にしてきたのは、ものづくり、それを作る人々、そして誠実な仕事でした。しかし成長するにつれ、今の私たちを育ててくれた人々と土地に何かを還元する責任を感じるようになりました。\r\n\r\nダワダ財団を通じて、私たちは教育、医療、そしてこれらに簡単にアクセスできない人々への支援に取り組んでいます。より良い機会を得るに値する娘たちのために。取り残されがちな農村の人々のために。奪うだけで与えることのない事業は、完全な事業ではないと信じているからこそ、私たちは活動しています。\r\n\r\nダワダで購入されるジュエリーはすべて、この想いを宿しています。あなたはただ美しいものを身につけているのではありません。より大きな何かの一部になっているのです。\r\n\r\n愛を込めて。\r\n創業者、ダワダチーム\r\nマヘシュ・サイニ"
+          }
+        ]
+      },
+      {
+        "type": "custom",
+        "title": "なぜダワダ・ジェムズ・アンド・ジュエラーズなのか?",
+        "content": "",
+        "order": 2,
+        "elements": [
+          {
+            "type": "paragraph",
+            "content": "私たちは有名になるためにこの仕事を始めたのではありません。自分たちの手で作れるものを愛していたから始めたのです。"
+          },
+          {
+            "type": "paragraph",
+            "content": "ひとつの作品、ひとつのアイデンティティ\r\nすべてのジュエリーは、それぞれが独自のアイデンティティを持つよう丁寧に作られています。色、素材、仕上げ、すべてがお手元に届く前に考え抜かれています。"
+          },
+          {
+            "type": "list",
+            "content": "1",
+            "list_type": "ul"
+          },
+          {
+            "type": "paragraph",
+            "content": "約30年の歩み\r\n私たちは1997年からこの仕事を続けています。簡単だったからではなく、心から愛していたからです。ひとつのことに長く取り組み続けることは稀であり、それは私たちが作るすべての作品に表れています。"
+          },
+          {
+            "type": "list",
+            "content": "2",
+            "list_type": "ul"
+          },
+          {
+            "type": "paragraph",
+            "content": "職人第一\r\n何よりもまず、作品を作る人のことを考えます。私たちの職人は長年にわたりこの技を磨いてきました。彼らの技術、目、手が、ダワダをダワダたらしめています。"
+          },
+          {
+            "type": "list",
+            "content": "3",
+            "list_type": "ul"
+          },
+          {
+            "type": "paragraph",
+            "content": "社会への還元\r\n私たちは周りのコミュニティに還元するために活動しています。チャリタブル・トラストを通じて、最も必要としている人々の教育、健康、機会を支援しています。"
+          },
+          {
+            "type": "list",
+            "content": "4",
+            "list_type": "ul"
+          }
+        ]
+      },
+      {
+        "type": "products",
+        "title": "私たちのチーム",
+        "content": "",
+        "order": 3,
+        "products": [
+          {
+            "title": "アリア・チェン",
+            "description": "最高マーケティング責任者",
+            "badge": "",
+            "link": "",
+            "button_text": "製品を見る",
+            "featured": 0,
+            "image": 99,
+            "wc_categories": [],
+            "wc_tags": []
+          },
+          {
+            "title": "ジャマール・ロビンソン",
+            "description": "リードプロダクトデザイナー",
+            "badge": "",
+            "link": "",
+            "button_text": "製品を見る",
+            "featured": 0,
+            "image": 100,
+            "wc_categories": [],
+            "wc_tags": []
+          },
+          {
+            "title": "ニーナ・パテル",
+            "description": "データサイエンティスト",
+            "badge": "",
+            "link": "",
+            "button_text": "製品を見る",
+            "featured": 0,
+            "image": 101,
+            "wc_categories": [],
+            "wc_tags": []
+          },
+          {
+            "title": "リアム・オコナー",
+            "description": "ソフトウェアエンジニア",
+            "badge": "",
+            "link": "",
+            "button_text": "製品を見る",
+            "featured": 0,
+            "image": 102,
+            "wc_categories": [],
+            "wc_tags": []
+          }
+        ]
+      }
+    ],
+    "language": "ja",
+    "created_at": "2025-11-23 09:16:01",
+    "updated_at": "2025-11-30 13:27:38"
+  }
+}

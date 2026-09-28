@@ -1,0 +1,172 @@
+{
+  "version": "1.0.0",
+  "export_date": "2026-09-28 11:38:05",
+  "page": {
+    "title": "about",
+    "slug": "about",
+    "status": "published",
+    "sections": [
+      {
+        "type": "products",
+        "title": "Dhawada-Stiftung",
+        "content": "",
+        "order": 0,
+        "products": [
+          {
+            "title": "",
+            "description": "",
+            "badge": "",
+            "link": "",
+            "button_text": "View Product",
+            "featured": 0,
+            "image": 94,
+            "wc_categories": [],
+            "wc_tags": []
+          },
+          {
+            "title": "",
+            "description": "",
+            "badge": "",
+            "link": "",
+            "button_text": "View Product",
+            "featured": 0,
+            "image": 97,
+            "wc_categories": [],
+            "wc_tags": []
+          },
+          {
+            "title": "",
+            "description": "",
+            "badge": "",
+            "link": "",
+            "button_text": "View Product",
+            "featured": 0,
+            "image": 98,
+            "wc_categories": [],
+            "wc_tags": []
+          }
+        ]
+      },
+      {
+        "type": "custom",
+        "title": "",
+        "content": "",
+        "order": 1,
+        "elements": [
+          {
+            "type": "image",
+            "content": "",
+            "alt_text": "",
+            "image": 94
+          },
+          {
+            "type": "heading",
+            "content": "Das ist die Dhawada-Stiftung",
+            "heading_level": "h3"
+          },
+          {
+            "type": "paragraph",
+            "content": "Die Dhawada-Stiftung ist nicht aus einem Businessplan entstanden. Sie entstand aus der einfachen Überzeugung: Wenn deine Arbeit erfolgreich ist, sollte sie auch Gutes tun.\r\n\r\nWir haben 1997 in einem kleinen Dorf bei Jaipur angefangen. Jahrelang standen das Handwerk, die Menschen, die es ausüben, und ehrliche Arbeit im Mittelpunkt. Doch als wir wuchsen, spürten wir die Verantwortung, den Menschen und dem Ort, die uns zu dem gemacht haben, was wir sind, etwas zurückzugeben.\r\n\r\nDurch die Dhawada-Stiftung setzen wir uns für Bildung, Gesundheitsversorgung und die Unterstützung derer ein, die keinen leichten Zugang dazu haben. Wir arbeiten für Töchter, die bessere Chancen verdienen. Wir arbeiten für ländliche Gemeinschaften, die oft zurückgelassen werden. Wir tun das, weil wir glauben, dass ein Unternehmen, das nur nimmt und nie gibt, kein vollständiges Unternehmen ist.\r\n\r\nJedes Schmuckstück, das du bei Dhawada kaufst, trägt dies in sich. Du trägst nicht nur etwas Schönes. Du bist Teil von etwas Größerem.\r\n\r\nMit Liebe.\r\nGründer, Dhawada-Team\r\nMahesh Saini"
+          }
+        ]
+      },
+      {
+        "type": "custom",
+        "title": "Warum Dhawada Gems and Jewellers?",
+        "content": "",
+        "order": 2,
+        "elements": [
+          {
+            "type": "paragraph",
+            "content": "Wir haben nicht angefangen, um bekannt zu werden. Wir haben angefangen, weil wir liebten, was unsere Hände erschaffen können."
+          },
+          {
+            "type": "paragraph",
+            "content": "Ein Stück, eine Identität\r\nJedes Schmuckstück wird so sorgfältig gefertigt, dass es seine eigene Identität besitzt. Farbe, Material, Finish – alles ist durchdacht, bevor es zu dir kommt."
+          },
+          {
+            "type": "list",
+            "content": "1",
+            "list_type": "ul"
+          },
+          {
+            "type": "paragraph",
+            "content": "Fast drei Jahrzehnte\r\nWir tun das seit 1997. Nicht weil es einfach war, sondern weil wir es wirklich liebten. Eine so lange Hingabe an eine einzige Sache ist selten, und man sieht sie in jedem Stück, das wir herstellen."
+          },
+          {
+            "type": "list",
+            "content": "2",
+            "list_type": "ul"
+          },
+          {
+            "type": "paragraph",
+            "content": "Handwerker zuerst\r\nVor allem anderen denken wir an die Person, die das Stück fertigt. Unsere Handwerker haben Jahre damit verbracht, dieses Handwerk zu erlernen. Ihr Können, ihr Auge, ihre Hände machen Dhawada zu dem, was es ist."
+          },
+          {
+            "type": "list",
+            "content": "3",
+            "list_type": "ul"
+          },
+          {
+            "type": "paragraph",
+            "content": "Etwas zurückgeben\r\nWir arbeiten daran, der Gemeinschaft um uns herum etwas zurückzugeben. Durch unsere gemeinnützige Stiftung unterstützen wir Bildung, Gesundheit und Chancen für diejenigen, die sie am dringendsten brauchen."
+          },
+          {
+            "type": "list",
+            "content": "4",
+            "list_type": "ul"
+          }
+        ]
+      },
+      {
+        "type": "products",
+        "title": "Unser Team",
+        "content": "",
+        "order": 3,
+        "products": [
+          {
+            "title": "Aria Chen",
+            "description": "Chief Marketing Officer",
+            "badge": "",
+            "link": "",
+            "button_text": "Produkt anzeigen",
+            "featured": 0,
+            "image": 99,
+            "wc_categories": [],
+            "wc_tags": []
+          },
+          {
+            "title": "Jamal Robinson",
+            "description": "Leitender Produktdesigner",
+            "badge": "",
+            "link": "",
+            "button_text": "Produkt anzeigen",
+            "featured": 0,
+            "image": 100
+          },
+          {
+            "title": "Nina Patel",
+            "description": "Datenwissenschaftler",
+            "badge": "",
+            "link": "",
+            "button_text": "Produkt anzeigen",
+            "featured": 0,
+            "image": 101
+          },
+          {
+            "title": "Liam O\\'Connor",
+            "description": "Software-Ingenieur",
+            "badge": "",
+            "link": "",
+            "button_text": "Produkt anzeigen",
+            "featured": 0,
+            "image": 102
+          }
+        ]
+      }
+    ],
+    "language": "de",
+    "created_at": "2025-12-02 14:24:05",
+    "updated_at": "2025-12-02 16:16:43"
+  }
+}
